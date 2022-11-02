@@ -1,6 +1,6 @@
 # standup-summary
 
-This script uses the GitHub API to query events for a GH user and then prints out relevant pull requests and issues and their titles. By default, the script will only include events from the previous workday until runtime (assumes Monday-Friday work week).
+This script uses the GitHub API to query events for a GH user and then prints out relevant pull requests and issues. By default, the script will only include events from the previous workday until runtime (assumes Monday-Friday work week).
 
 
 # Prerequisites
