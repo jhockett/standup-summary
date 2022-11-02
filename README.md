@@ -3,7 +3,7 @@
 This script expects two environment variables, a GitHub API token under `GH_API_TOKEN` and a GitHub username under `GH_USERNAME`.
 
 # Usage
-`node standup.js [-a | -all]`
+`node standup.js [-a | --all]`
 
 The script by default will strip events not since the previous workday (assumes Monday-Friday work week).
 
