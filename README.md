@@ -4,7 +4,9 @@ This script uses the GitHub API to query events for a GH user and then prints ou
 
 
 # Prerequisites
-Generate a readonly GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and set the environement variables `GH_API_TOKEN` and `GH_USERNAME`
+1) Generate a readonly GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and set the environement variables `GH_API_TOKEN` and `GH_USERNAME`.
+
+2) Clone this repository and run `npm install`.
 
 # Usage
 
