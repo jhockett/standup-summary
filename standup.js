@@ -31,7 +31,7 @@ const main = async () => {
     if (event?.org?.login === 'aws-amplify') {
       const { payload } = event;
       const prNumber = payload?.pull_request?.number;
-      const updated_at = payload?.pull_request?.updated_at;
+      const updated_at = payload?.pull_request?.updated_at || payload?.issue?.updated_at;
       switch(event.type) {
         case 'CreateEvent':
           return; // ignore branch creation for now
@@ -39,7 +39,6 @@ const main = async () => {
           if (updated_at && !all && isRecent(updated_at)) {
             return;
           }
-
           if (mergedPullRequests[prNumber] || payload.pull_request.user.login !== username) {
             return;
           }
@@ -72,11 +71,17 @@ const main = async () => {
         case 'IssuesEvent':
           if (payload.action === 'closed') {
             // api does not return enough info to determine when closed by PR so ignore
+            return;
+          } else if (updated_at && !all && isRecent(updated_at)) {
+            return;
           } else {
             issues[payload.issue.number] = payload;
           }
           return;
         case 'IssueCommentEvent':
+          if (updated_at && !all && isRecent(updated_at)) {
+            return;
+          }
           issues[payload.issue.number] = payload;
           return;
         case 'ForkEvent':
